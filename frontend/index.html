@@ -12,10 +12,21 @@
       <ul class="nav-links">
         <li class="nav-item"><a href="index.html">Home</a></li>
         <li class="nav-item"><a href="presensi.html">E-Book</a></li>
-        <li class="nav-item"><a href="pinjam-buku.html">About</a></li>
+        <li class="nav-item"><a href="#" id="about-btn">About</a></li>
       </ul>
     </div>
   </nav>
+  
+    <dialog class="about-contain" id="about-contain" aria-labelledby="about-title">
+      <div class="about-header" id ="about-header">
+        <h2>Tentang Website Ruang Baca</h2>
+        <button class="about-close" type="button" aria-label="Tutup">×</button>
+      </div>
+      <div class="about-body">
+        <p>Website ini dirancang untuk memudahkan mahasiswa
+           untuk melakukan presensi, peminjaman, dan pengembalian buku di Ruang Baca Teknik Komputer.</p>
+      </div>
+    </dialog>
   <section class="page-1">
     <div class="page-1-content">
       <h1>Welcome</h1>
@@ -44,6 +55,6 @@
       </button>
     </div>
   </section>
-
+<script src="script.js"></script>
 </body>
 </html>
