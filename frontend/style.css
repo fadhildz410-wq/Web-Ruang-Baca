@@ -1,26 +1,27 @@
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap");
+
 /* ==========================================================
-   Ruang Baca Teknik Komputer
-   Gaya: "Quiet Place" — mint/sage, font monospace, aksen coral,
-   dekor pixel-art (rak buku + danau)
-   ========================================================== */
-
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap");
-
+  1. DESIGN TOKENS
+  ========================================================== */
 :root {
-  --sky: #cfe3dc;
-  --water: #93b8b3;
-  --cloud: #f1f5ee;
-  --ink: #0f3b3a;          /* teks judul */
-  --ink-soft: #476663;     /* teks deskripsi */
-  --card: #eef4ef;
-  --card-line: #0f3b3a;
-  --coral: #e8605a;
-  --coral-dark: #cf4a44;
-  --sage: #9db9ac;
-
-  --font: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --sky: #f3f5ee;
+  --water: #dce9df;
+  --cloud: #fffdf6;
+  --ink: #193c37;
+  --ink-soft: #526b63;
+  --card: #fffefa;
+  --card-line: #dce6dd;
+  --coral: #d96b54;
+  --coral-dark: #b95542;
+  --sage: #c4d8c8;
+  --font: "DM Sans", "Segoe UI", sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
 }
 
+/* ==========================================================
+   2. RESET AND GLOBAL STYLES
+   ========================================================== */
 *,
 *::before,
 *::after {
@@ -40,7 +41,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ================ NAVBAR ================ */
+/* ==========================================================
+  3. NAVIGATION
+  ========================================================== */
 nav {
   position: fixed;
   top: 0;
@@ -74,8 +77,8 @@ nav {
 }
 
 /* ==========================================================
-   PAGE 1 — Hero (langit, awan, rak buku pixel, danau)
-   ========================================================== */
+  4. HERO SECTION
+  ========================================================== */
 
 .page-1 {
   position: relative;
@@ -123,7 +126,7 @@ nav {
   color: var(--ink-soft);
 }
 
-/* Rak buku pixel (kiri & kanan) */
+/* Decorative bookshelf illustration */
 .page-1::before,
 .page-1::after {
   content: "";
@@ -147,8 +150,8 @@ nav {
 }
 
 /* ==========================================================
-   PAGE 2 — Menu layanan (3 kartu)
-   ========================================================== */
+  5. SERVICES SECTION
+  ========================================================== */
 
 .page-2 {
   min-height: 100vh;
@@ -161,7 +164,7 @@ nav {
   background: var(--sky);
 }
 
-/* Rak buku pixel di bagian bawah */
+/* Decorative bookshelf at the bottom of the section */
 .page-2::after {
   content: "";
   position: absolute;
@@ -185,7 +188,7 @@ nav {
   gap: 32px;
 }
 
-/* Kartu (elemen <button>, jadi reset dulu) */
+/* Service cards */
 .card {
   position: relative;
   display: flex;
@@ -216,7 +219,7 @@ nav {
   box-shadow: 2px 2px 0 var(--coral);
 }
 
-/* Ikon kartu — pakai gambar pixel-art (isi src di HTML) */
+/* Card image/icon area */
 .card img {
   display: block;
   width: 64px;
@@ -241,7 +244,7 @@ nav {
   color: var(--ink-soft);
 }
 
-/* Link kosong <a> dibuat menutupi seluruh kartu agar semua area bisa diklik */
+/* Full-card link overlay for legacy card markup */
 .card a {
   position: absolute;
   inset: 0;
@@ -249,7 +252,7 @@ nav {
   border-radius: inherit;
 }
 
-/* Fokus keyboard */
+/* Keyboard focus */
 .card:focus-visible,
 .card a:focus-visible {
   outline: 3px solid var(--coral);
@@ -257,9 +260,8 @@ nav {
 }
 
 /* ==========================================================
-   Tombol utilitas (opsional, gaya pill coral seperti di desain)
-   Pakai: <a class="btn btn-primary">Mulai</a>
-   ========================================================== */
+  6. UTILITY BUTTONS
+  ========================================================== */
 
 .btn {
   display: inline-block;
@@ -290,6 +292,9 @@ nav {
   background: #fff;
 }
 
+/* ==========================================================
+   7. ABOUT DIALOG
+   ========================================================== */
 .about-contain {
   width: min(520px, calc(100vw - 48px));
   max-height: calc(100vh - 48px);
@@ -363,12 +368,336 @@ nav {
 .about-body p:last-child {
   margin-bottom: 0;
 }
-body:has(.about-dialog[open]) {
+/* ==========================================================
+  8. MODERN VISUAL REFINEMENTS
+   ========================================================== */
+
+
+body {
+  background: var(--sky);
+  color: var(--ink);
+  font-family: var(--font);
+}
+
+nav {
+  background: rgba(243, 245, 238, 0.92);
+  border-bottom: 1px solid rgba(25, 60, 55, 0.1);
+  box-shadow: 0 8px 28px rgba(25, 60, 55, 0.06);
+  backdrop-filter: blur(16px);
+}
+
+.nav-content {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px 28px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--ink);
+}
+
+.brand-mark svg {
+  width: 23px;
+  stroke: #f3f5ee;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.nav-links {
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item a {
+  display: inline-block;
+  padding: 9px 14px;
+  border-radius: 999px;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.nav-item a:hover {
+  color: var(--ink);
+  background: rgba(25, 60, 55, 0.07);
+}
+
+.page-1 {
+  min-height: max(720px, 100svh);
+  align-items: center;
+  padding: 126px 24px 250px;
+  background:
+    radial-gradient(ellipse at 12% 24%, rgba(217, 107, 84, 0.11), transparent 30%),
+    radial-gradient(ellipse at 88% 18%, rgba(114, 157, 130, 0.16), transparent 32%),
+    linear-gradient(to bottom, #f3f5ee 0%, #eef3e9 76%, #dce9df 76%, #dce9df 100%);
+}
+
+.page-1-content {
+  width: min(760px, 100%);
+  max-width: 760px;
+  animation: content-arrive 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.hero-kicker,
+.section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px;
+  color: var(--coral-dark);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.hero-kicker {
+  justify-content: center;
+}
+
+.hero-kicker span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--coral);
+  box-shadow: 0 0 0 5px rgba(217, 107, 84, 0.12);
+}
+
+.page-1-content h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 7.5rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.page-1-content h3 {
+  max-width: 520px;
+  margin: 22px auto 0;
+  color: var(--ink-soft);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.65;
+}
+
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  padding: 12px 18px;
+  border: 1px solid rgba(25, 60, 55, 0.18);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.hero-link:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 254, 250, 0.72);
+}
+
+.hero-link span {
+  color: var(--coral-dark);
+  font-size: 1.1rem;
+}
+
+.page-1::before,
+.page-1::after {
+  bottom: 11%;
+  width: clamp(180px, 22vw, 340px);
+  opacity: 0.86;
+  filter: drop-shadow(0 14px 18px rgba(25, 60, 55, 0.12));
+}
+
+.page-2 {
+  min-height: 100svh;
+  padding: 112px 28px 168px;
+  background:
+    radial-gradient(ellipse at 92% 12%, rgba(217, 107, 84, 0.08), transparent 30%),
+    #f8f8f2;
+}
+
+.page-2::after {
+  height: 88px;
+  opacity: 0.48;
+}
+
+.page-2-content {
+  max-width: 1100px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.services-heading {
+  grid-column: 1 / -1;
+  margin-bottom: 14px;
+}
+
+.services-heading .section-kicker {
+  margin-bottom: 10px;
+}
+
+.services-heading h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.services-heading > p:last-child {
+  margin: 12px 0 0;
+  color: var(--ink-soft);
+}
+
+.card {
+  min-height: 300px;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 28px;
+  border: 1px solid var(--card-line);
+  border-radius: 16px;
+  color: var(--ink);
+  text-align: left;
+  text-decoration: none;
+  background: var(--card);
+  box-shadow: 0 8px 24px rgba(25, 60, 55, 0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(217, 107, 84, 0.55);
+  box-shadow: 0 18px 36px rgba(25, 60, 55, 0.12);
+}
+
+.card:active {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(25, 60, 55, 0.1);
+}
+
+.card-icon {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 15px;
+  background: #f5e6d8;
+}
+
+.card:nth-of-type(3) .card-icon {
+  background: #e2eee3;
+}
+
+.card:nth-of-type(4) .card-icon {
+  background: #e6edf0;
+}
+
+.card-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--ink);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.card h2 {
+  margin: 6px 0 0;
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 600;
+}
+
+.card-desc {
+  max-width: 34ch;
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.card-link {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--card-line);
+  color: var(--coral-dark);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.card-link span {
+  font-size: 1.1rem;
+  transition: transform 160ms ease;
+}
+
+.card:hover .card-link span {
+  transform: translate(2px, -2px);
+}
+
+.about-contain {
+  width: min(520px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  border: 1px solid var(--card-line);
+  border-radius: 18px;
+  box-shadow: 0 24px 80px rgba(15, 45, 40, 0.2);
+}
+
+.about-contain::backdrop {
+  background: rgba(15, 45, 40, 0.48);
+  backdrop-filter: blur(5px);
+}
+
+.about-header {
+  background: #eef3e9;
+  border-bottom: 1px solid var(--card-line);
+}
+
+.about-close {
+  border: 1px solid var(--card-line);
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+body:has(.about-contain[open]) {
   overflow: hidden;
 }
 /* ==========================================================
-   Responsif
-   ========================================================== */
+  9. BASE RESPONSIVE RULES
+  ========================================================== */
 
 @media (max-width: 860px) {
   .page-2-content {
@@ -402,6 +731,9 @@ body:has(.about-dialog[open]) {
     transition: none;
   }
 }
+/* ==========================================================
+  10. ANIMATIONS
+  ========================================================== */
 @keyframes about-pop {
   from {
     opacity: 0;
@@ -413,12 +745,134 @@ body:has(.about-dialog[open]) {
   }
 }
  
+/* Respect the operating system's reduced-motion preference. */
 @media (prefers-reduced-motion: reduce) {
-  .about-dialog[open] {
+  .about-contain[open] {
     animation: none;
   }
  
   .about-close {
+    transition: none;
+  }
+}
+
+
+
+@keyframes content-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Final breakpoint overrides for tablet and mobile layouts. */
+@media (max-width: 860px) {
+  .page-2 {
+    align-items: center;
+    padding: 100px 24px 150px;
+  }
+
+  .page-2-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 760px;
+  }
+
+  .card:last-child {
+    grid-column: 1 / -1;
+    width: calc(50% - 10px);
+    justify-self: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav-content {
+    min-height: 66px;
+    gap: 8px;
+    padding: 10px 14px;
+  }
+
+  .brand {
+    gap: 7px;
+    font-size: 1rem;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+  }
+
+  .nav-links {
+    gap: 0;
+  }
+
+  .nav-item a {
+    padding: 8px 7px;
+    font-size: 0.78rem;
+  }
+
+  .page-1 {
+    min-height: 760px;
+    min-height: 100svh;
+    padding: 116px 20px 210px;
+  }
+
+  .page-1-content h1 {
+    font-size: clamp(3.5rem, 16vw, 5rem);
+  }
+
+  .page-1-content h3 {
+    margin-top: 16px;
+  }
+
+  .page-1::before,
+  .page-1::after {
+    bottom: 8%;
+    width: 34vw;
+    opacity: 0.62;
+  }
+
+  .page-2 {
+    min-height: auto;
+    padding: 82px 18px 132px;
+  }
+
+  .page-2-content {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .services-heading {
+    margin-bottom: 10px;
+  }
+
+  .card,
+  .card:last-child {
+    width: 100%;
+    min-height: 260px;
+    grid-column: auto;
+    padding: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-1-content {
+    animation: none;
+  }
+
+  .about-contain[open] {
+    animation: none;
+  }
+
+  .about-close,
+  .card,
+  .btn,
+  .hero-link,
+  .nav-item a {
     transition: none;
   }
 }
